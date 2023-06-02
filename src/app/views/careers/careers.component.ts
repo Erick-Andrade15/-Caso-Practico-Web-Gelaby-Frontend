@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CareerModel } from 'src/app/models/career.model';
-import { CareersService } from 'src/app/services/careers.service.service';
+import { CareersService } from 'src/app/services/careers.service';
 import Swal from 'sweetalert2';
 
 @Component({

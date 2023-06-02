@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UpdateCareerModel } from 'src/app/models/career.model';
-import { CareersService } from 'src/app/services/careers.service.service';
+import { CareersService } from 'src/app/services/careers.service';
 import Swal from 'sweetalert2';
 
 @Component({

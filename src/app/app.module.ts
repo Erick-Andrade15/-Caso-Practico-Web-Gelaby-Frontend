@@ -20,6 +20,9 @@ import { ForgotPasswordComponent } from './views/forgot-password/forgot-password
 import { CareersComponent } from './views/careers/careers.component';
 import { CreateCareersComponent } from './views/careers/create-careers/create-careers.component';
 import { EditCareersComponent } from './views/careers/edit-careers/edit-careers.component';
+import { CoursesComponent } from './views/courses/courses.component';
+import { CreateCoursesComponent } from './views/courses/create-courses/create-courses.component';
+import { EditCoursesComponent } from './views/courses/edit-courses/edit-courses.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { EditCareersComponent } from './views/careers/edit-careers/edit-careers.
     ForgotPasswordComponent,
     CareersComponent,
     CreateCareersComponent,
-    EditCareersComponent
+    EditCareersComponent,
+    CoursesComponent,
+    CreateCoursesComponent,
+    EditCoursesComponent
   ],
   imports: [
     BrowserModule,

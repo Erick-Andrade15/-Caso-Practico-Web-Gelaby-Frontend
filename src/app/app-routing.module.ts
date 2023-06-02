@@ -14,10 +14,15 @@ import { SubjectsComponent } from './views/subjects/subjects.component';
 import { CreateSubjectsComponent } from './views/subjects/create-subjects/create-subjects.component';
 import { EditSubjectsComponent } from './views/subjects/edit-subjects/edit-subjects.component';
 
-/*Subjects*/
+/*Careers*/
 import { CareersComponent } from './views/careers/careers.component';
 import { CreateCareersComponent } from './views/careers/create-careers/create-careers.component'; 
 import { EditCareersComponent } from './views/careers/edit-careers/edit-careers.component'; 
+
+/*Courses*/
+import { CoursesComponent } from './views/courses/courses.component'; 
+import { CreateCoursesComponent } from './views/courses/create-courses/create-courses.component';  
+import { EditCoursesComponent } from './views/courses/edit-courses/edit-courses.component'; 
 
 
 const routes: Routes = [
@@ -36,7 +41,14 @@ const routes: Routes = [
 /*Careers*/
 {path: 'careers', component: CareersComponent, canActivate:[ExpenseGuard]},
 {path: 'careers/create-career', component: CreateCareersComponent, canActivate:[ExpenseGuard]},
-{path: 'careers/edit-career/:id', component: EditCareersComponent, canActivate:[ExpenseGuard]},];
+{path: 'careers/edit-career/:id', component: EditCareersComponent, canActivate:[ExpenseGuard]},
+
+/*Courses*/
+{path: 'courses', component: CoursesComponent, canActivate:[ExpenseGuard]},
+{path: 'courses/create-course', component: CreateCoursesComponent, canActivate:[ExpenseGuard]},
+{path: 'courses/edit-course/:id', component: EditCoursesComponent, canActivate:[ExpenseGuard]},
+
+];
 
 @NgModule({
   declarations: [],
