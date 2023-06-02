@@ -17,6 +17,9 @@ import { LogoutComponent } from './views/logout/logout.component';
 import { HomeComponent } from './views/home/home.component';
 import { RegisterComponent } from './views/register/register.component';
 import { ForgotPasswordComponent } from './views/forgot-password/forgot-password.component';
+import { CareersComponent } from './views/careers/careers.component';
+import { CreateCareersComponent } from './views/careers/create-careers/create-careers.component';
+import { EditCareersComponent } from './views/careers/edit-careers/edit-careers.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { ForgotPasswordComponent } from './views/forgot-password/forgot-password
     LogoutComponent,
     HomeComponent,
     RegisterComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    CareersComponent,
+    CreateCareersComponent,
+    EditCareersComponent
   ],
   imports: [
     BrowserModule,

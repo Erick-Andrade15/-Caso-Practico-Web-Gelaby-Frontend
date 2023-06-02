@@ -35,7 +35,7 @@ export class CreateSubjectsComponent {
       return;
     }
 
-    if (this.Subject.subject_credits <= 0 || this.Subject.subject_credits > 100) {
+    if (this.Subject.subject_credits < 0 || this.Subject.subject_credits > 100) {
       Swal.fire({
         icon: 'error',
         title: 'Error',
