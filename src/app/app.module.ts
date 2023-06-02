@@ -12,6 +12,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { SubjectsComponent } from './views/subjects/subjects.component';
 import { CreateSubjectsComponent } from './views/subjects/create-subjects/create-subjects.component';
 import { EditSubjectsComponent } from './views/subjects/edit-subjects/edit-subjects.component';
+import { LoginComponent } from './views/login/login.component';
+import { LogoutComponent } from './views/logout/logout.component';
+import { HomeComponent } from './views/home/home.component';
+import { RegisterComponent } from './views/register/register.component';
+import { ForgotPasswordComponent } from './views/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +24,12 @@ import { EditSubjectsComponent } from './views/subjects/edit-subjects/edit-subje
     NavbarComponent,
     SubjectsComponent,
     CreateSubjectsComponent,
-    EditSubjectsComponent
+    EditSubjectsComponent,
+    LoginComponent,
+    LogoutComponent,
+    HomeComponent,
+    RegisterComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,

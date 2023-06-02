@@ -1,0 +1,29 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <div class="text-center mb-4">
+              <img src="../../assets/img/logos/Logo GELABY.png" alt="" class="img-fluid" style="max-width: 150px">
+            </div>
+            <h2 class="text-center mb-4">{{title}}</h2>
+            <form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.value)">
+              <div class="mb-3">
+                <label for="email" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="email" formControlName="email" placeholder="Correo electrónico" required>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="password" formControlName="password" placeholder="Contraseña" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+            </form>
+            <div class="text-center mt-3">
+              <a href="/register" class="text-decoration-none">¿No tienes una cuenta? Regístrate</a> | 
+              <a href="/forgotPassword" class="text-decoration-none">¿Olvidaste tu contraseña?</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
