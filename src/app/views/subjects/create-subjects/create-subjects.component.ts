@@ -13,6 +13,7 @@ export class CreateSubjectsComponent {
   title: string = 'Crear asignatura'; 
   Subject: CreateSubjectModel = {
     subject_name: '',
+    subject_credits: 0
   };
 
   constructor(private apiService: SubjectsService, private router: Router) {}
@@ -20,6 +21,7 @@ export class CreateSubjectsComponent {
   createSubject() {
      const data = {
       subject_name: this.Subject.subject_name,
+      subject_credits: this.Subject.subject_credits,
     };
 
     if (this.Subject.subject_name.length < 3 || this.Subject.subject_name.length > 20 ) {
@@ -32,6 +34,19 @@ export class CreateSubjectsComponent {
       });
       return;
     }
+
+    if (this.Subject.subject_credits <= 0 || this.Subject.subject_credits > 100) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Los creditos de la asignatura debe ser mayores a 0 y menores a 100!',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      return;
+    }
+
+
 
     this.apiService.createSubject(data).subscribe(
       (response) => {

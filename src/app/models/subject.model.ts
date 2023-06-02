@@ -1,7 +1,7 @@
 export interface SubjectModel {
   subject_id: number;
   subject_name: string;
-  // Otras propiedades del modelo
+  subject_credits : number;
 }
 
 export interface CreateSubjectModel extends Omit<SubjectModel, 'subject_id'> {}

@@ -5,6 +5,7 @@
         <div class="card-body">
           <h2 class="text-center mb-4">{{ title }}</h2>
           <form (submit)="createSubject()">
+            
             <div class="mb-3">
               <label for="cedula" class="form-label">Nombre</label>
               <input
@@ -14,6 +15,18 @@
                 class="form-control"
                 placeholder="Nombre Asignatura"
                 type="text"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="cedula" class="form-label">Creditos</label>
+              <input
+                [(ngModel)]="Subject.subject_credits"
+                value="{{ Subject.subject_credits }}"
+                name="subject_credits"
+                class="form-control"
+                type="number"
                 required
               />
             </div>

@@ -17,6 +17,7 @@
                 <tr>
                   <th>Id</th>
                   <th>Asignaturas</th>
+                  <th>Creditos</th>
                   <th>Acciones</th>
                 </tr>
               </thead>
@@ -24,6 +25,7 @@
                 <tr *ngFor="let subject of subjects">
                     <td>{{ subject.subject_id }}</td>
                     <td>{{ subject.subject_name }}</td>
+                    <td>{{ subject.subject_credits }}</td>
                     <td>
                     <button type="button" [routerLink]="['/subjects/edit-subject/', subject.subject_id]" class="btn btn-outline-primary">
                       <span class="fas fa-edit"></span></button
