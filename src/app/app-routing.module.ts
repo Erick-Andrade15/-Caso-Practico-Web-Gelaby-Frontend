@@ -24,6 +24,12 @@ import { CoursesComponent } from './views/courses/courses.component';
 import { CreateCoursesComponent } from './views/courses/create-courses/create-courses.component';  
 import { EditCoursesComponent } from './views/courses/edit-courses/edit-courses.component'; 
 
+/*Teachers*/
+import { TeachersComponent } from './views/teachers/teachers.component';  
+import { CreateTeachersComponent } from './views/teachers/create-teachers/create-teachers.component';   
+import { EditTeachersComponent } from './views/teachers/edit-teachers/edit-teachers.component'; 
+
+
 
 const routes: Routes = [
 { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -47,6 +53,11 @@ const routes: Routes = [
 {path: 'courses', component: CoursesComponent, canActivate:[ExpenseGuard]},
 {path: 'courses/create-course', component: CreateCoursesComponent, canActivate:[ExpenseGuard]},
 {path: 'courses/edit-course/:id', component: EditCoursesComponent, canActivate:[ExpenseGuard]},
+
+/*Teachers*/
+{path: 'teachers', component: TeachersComponent, canActivate:[ExpenseGuard]},
+{path: 'teachers/create-teacher', component: CreateTeachersComponent, canActivate:[ExpenseGuard]},
+{path: 'teachers/edit-teacher/:id', component: EditTeachersComponent, canActivate:[ExpenseGuard]},
 
 ];
 

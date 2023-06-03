@@ -23,6 +23,9 @@ import { EditCareersComponent } from './views/careers/edit-careers/edit-careers.
 import { CoursesComponent } from './views/courses/courses.component';
 import { CreateCoursesComponent } from './views/courses/create-courses/create-courses.component';
 import { EditCoursesComponent } from './views/courses/edit-courses/edit-courses.component';
+import { TeachersComponent } from './views/teachers/teachers.component';
+import { CreateTeachersComponent } from './views/teachers/create-teachers/create-teachers.component';
+import { EditTeachersComponent } from './views/teachers/edit-teachers/edit-teachers.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import { EditCoursesComponent } from './views/courses/edit-courses/edit-courses.
     EditCareersComponent,
     CoursesComponent,
     CreateCoursesComponent,
-    EditCoursesComponent
+    EditCoursesComponent,
+    TeachersComponent,
+    CreateTeachersComponent,
+    EditTeachersComponent
   ],
   imports: [
     BrowserModule,
