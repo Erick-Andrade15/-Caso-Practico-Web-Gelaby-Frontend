@@ -35,6 +35,9 @@ import { EditLaboratoriesComponent } from './views/laboratories/edit-laboratorie
 import { LaboratoriesStatusComponent } from './views/laboratories-status/laboratories-status.component';
 import { CreateLaboratoriesStatusComponent } from './views/laboratories-status/create-laboratories-status/create-laboratories-status.component';
 import { EditLaboratoriesStatusComponent } from './views/laboratories-status/edit-laboratories-status/edit-laboratories-status.component';
+import { LaboratoriesAssignComponent } from './views/laboratories-assign/laboratories-assign.component';
+import { CreateLaboratoriesAssignComponent } from './views/laboratories-assign/create-laboratories-assign/create-laboratories-assign.component';
+import { EditLaboratoriesAssignComponent } from './views/laboratories-assign/edit-laboratories-assign/edit-laboratories-assign.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +68,10 @@ import { EditLaboratoriesStatusComponent } from './views/laboratories-status/edi
     EditLaboratoriesComponent,
     LaboratoriesStatusComponent,
     CreateLaboratoriesStatusComponent,
-    EditLaboratoriesStatusComponent
+    EditLaboratoriesStatusComponent,
+    LaboratoriesAssignComponent,
+    CreateLaboratoriesAssignComponent,
+    EditLaboratoriesAssignComponent
   ],
   imports: [
     BrowserModule,

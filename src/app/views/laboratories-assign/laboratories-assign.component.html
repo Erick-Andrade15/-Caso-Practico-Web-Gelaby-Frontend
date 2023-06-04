@@ -5,7 +5,7 @@
           <div class="card-body">
             <h1 class="text-center mb-4">{{ title }}</h1>
             <a type="button" routerLink="/laboratories-assign/create-laboratory-assign" class="btn btn-outline-success mb-3">
-              Nuevo estado de laboratorio <span class="fas fa-plus"></span>
+              Nueva asignacion de Laboratorio <span class="fas fa-plus"></span>
             </a>
             <div class="table-responsive">
               <table class="table table-striped">
@@ -13,24 +13,24 @@
                   <tr>
                     <th>Nº</th>
                     <th>Fecha</th>
+                    <th>Descripción</th>
                     <th>Laboratorio</th>
-                    <th>Estado</th>
-                    <th>Descripcion</th>
+                    <th>Docente</th>
                     <th>Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let laboratoryStatus of LaboratoriesStatus">
-                    <td>{{ laboratoryStatus.lab_status_id }}</td>
-                    <td>{{ laboratoryStatus.lab_status_date | date:'EEEE dd MMMM yyyy' }}</td>
-                    <td>{{ laboratoryStatus.laboratory?.lab_name }}</td>
-                    <td>{{ laboratoryStatus.lab_status_detail }}</td>
-                    <td>{{ laboratoryStatus.lab_status_notes }}</td>
+                  <tr *ngFor="let laboratoryAssign of LaboratoriesAssign">
+                    <td>{{ laboratoryAssign.lab_assign_id }}</td>
+                    <td>{{ laboratoryAssign.lab_assign_date | date:'EEEE dd MMMM yyyy' }}</td>
+                    <td>{{ laboratoryAssign.lab_assign_description }}</td>
+                    <td>{{ laboratoryAssign.laboratory?.lab_name }}</td>
+                    <td>{{ laboratoryAssign.teacher?.teacher_first_name ? (laboratoryAssign.teacher.teacher_first_name + ' ' + laboratoryAssign.teacher.teacher_last_name) : '' }}</td>
                     <td>
-                      <button type="button" [routerLink]="['/laboratories-status/edit-laboratory-status/', laboratoryStatus.lab_status_id]" class="btn btn-outline-primary">
+                      <button type="button" [routerLink]="['/laboratories-assign/edit-laboratory-assign/', laboratoryAssign.lab_assign_id]" class="btn btn-outline-primary">
                         <span class="fas fa-edit"></span>
                       </button> &nbsp;
-                      <button type="button" (click)="deleteLaboratoryStatus(laboratoryStatus.lab_status_id)" class="btn btn-outline-danger">
+                      <button type="button" (click)="deleteLaboratoryAssign(laboratoryAssign.lab_assign_id)" class="btn btn-outline-danger">
                         <span class="fas fa-trash-alt"></span>
                       </button>
                     </td>

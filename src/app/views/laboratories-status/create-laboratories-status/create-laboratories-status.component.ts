@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { LaboratoriesStatusModel } from 'src/app/models/laboratories-status.model';
+import { CreateLaboratoriesStatusModel } from 'src/app/models/laboratories-status.model';
 import { LaboratoriesModel } from 'src/app/models/laboratories.model';
 import { LaboratoriesStatusService } from 'src/app/services/laboratories-status.service';
 import { LaboratoriesService } from 'src/app/services/laboratories.service';
@@ -14,8 +14,7 @@ import Swal from 'sweetalert2';
 export class CreateLaboratoriesStatusComponent {
   title: string = 'Nuevo Estado Laboratorio';
   Laboratories: LaboratoriesModel[] = [];
-  LaboratoriesStatus: LaboratoriesStatusModel = {
-    lab_status_id: 0,
+  LaboratoriesStatus: CreateLaboratoriesStatusModel = {
     lab_status_detail: '',
     lab_status_date: '',
     lab_status_notes: '',
