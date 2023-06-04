@@ -8,7 +8,6 @@ import Swal from 'sweetalert2';
   selector: 'app-teachers-details',
   templateUrl: './teachers-details.component.html',
   providers: [DatePipe],
-
   styleUrls: ['./teachers-details.component.css']
 })
 export class TeachersDetailsComponent {

@@ -9,7 +9,6 @@ import { SubjectsService } from 'src/app/services/subjects.service';
 import { TeachersDetailsService } from 'src/app/services/teachers-details.service';
 import { TeachersService } from 'src/app/services/teachers.service';
 import { DatePipe } from '@angular/common';
-
 import Swal from 'sweetalert2';
 
 @Component({

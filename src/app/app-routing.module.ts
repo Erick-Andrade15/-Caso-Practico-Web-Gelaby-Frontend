@@ -39,6 +39,16 @@ import { LaboratoriesComponent } from './views/laboratories/laboratories.compone
 import { CreateLaboratoriesComponent } from './views/laboratories/create-laboratories/create-laboratories.component';  
 import { EditLaboratoriesComponent } from './views/laboratories/edit-laboratories/edit-laboratories.component';   
 
+/*Laboratory-Status*/
+import { LaboratoriesStatusComponent } from './views/laboratories-status/laboratories-status.component'; 
+import { CreateLaboratoriesStatusComponent } from './views/laboratories-status/create-laboratories-status/create-laboratories-status.component'; 
+import { EditLaboratoriesStatusComponent } from './views/laboratories-status/edit-laboratories-status/edit-laboratories-status.component';  
+
+/*Laboratory-Assign*/
+//import { LaboratoriesStatusComponent } from './views/laboratories-status/laboratories-status.component'; 
+//import { CreateLaboratoriesStatusComponent } from './views/laboratories-status/create-laboratories-status/create-laboratories-status.component'; 
+//import { EditLaboratoriesStatusComponent } from './views/laboratories-status/edit-laboratories-status/edit-laboratories-status.component';  
+
 
 const routes: Routes = [
 { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -77,6 +87,17 @@ const routes: Routes = [
 {path: 'laboratories', component: LaboratoriesComponent, canActivate:[ExpenseGuard]},
 {path: 'laboratories/create-laboratory', component: CreateLaboratoriesComponent, canActivate:[ExpenseGuard]},
 {path: 'laboratories/edit-laboratory/:id', component: EditLaboratoriesComponent, canActivate:[ExpenseGuard]},
+
+/*Laboratory-Status*/
+{path: 'laboratories-status', component: LaboratoriesStatusComponent, canActivate:[ExpenseGuard]},
+{path: 'laboratories-status/create-laboratory-status', component: CreateLaboratoriesStatusComponent, canActivate:[ExpenseGuard]},
+{path: 'laboratories-status/edit-laboratory-status/:id', component: EditLaboratoriesStatusComponent, canActivate:[ExpenseGuard]},
+
+/*Laboratory-Assign*/
+//{path: 'laboratories-assign', component: LaboratoriesStatusComponent, canActivate:[ExpenseGuard]},
+//{path: 'laboratories-assign/create-laboratory-assign', component: CreateLaboratoriesStatusComponent, canActivate:[ExpenseGuard]},
+//{path: 'laboratories-assign/edit-laboratory-assign/:id', component: EditLaboratoriesStatusComponent, canActivate:[ExpenseGuard]},
+
 
 ];
 
