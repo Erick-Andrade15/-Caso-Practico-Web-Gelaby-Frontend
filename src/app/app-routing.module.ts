@@ -34,6 +34,10 @@ import { TeachersDetailsComponent } from './views/teachers-details/teachers-deta
 import { CreateTeachersDetailsComponent } from './views/teachers-details/create-teachers-details/create-teachers-details.component';  
 import { EditTeachersDetailsComponent } from './views/teachers-details/edit-teachers-details/edit-teachers-details.component';  
 
+/*Laboratories*/
+import { LaboratoriesComponent } from './views/laboratories/laboratories.component'; 
+import { CreateLaboratoriesComponent } from './views/laboratories/create-laboratories/create-laboratories.component';  
+import { EditLaboratoriesComponent } from './views/laboratories/edit-laboratories/edit-laboratories.component';   
 
 
 const routes: Routes = [
@@ -68,6 +72,11 @@ const routes: Routes = [
 {path: 'teachers-details', component: TeachersDetailsComponent, canActivate:[ExpenseGuard]},
 {path: 'teachers-details/create-teacher-detail', component: CreateTeachersDetailsComponent, canActivate:[ExpenseGuard]},
 {path: 'teachers-details/edit-teacher-detail/:id', component: EditTeachersDetailsComponent, canActivate:[ExpenseGuard]},
+
+/*Laboratories*/
+{path: 'laboratories', component: LaboratoriesComponent, canActivate:[ExpenseGuard]},
+{path: 'laboratories/create-laboratory', component: CreateLaboratoriesComponent, canActivate:[ExpenseGuard]},
+{path: 'laboratories/edit-laboratory/:id', component: EditLaboratoriesComponent, canActivate:[ExpenseGuard]},
 
 ];
 

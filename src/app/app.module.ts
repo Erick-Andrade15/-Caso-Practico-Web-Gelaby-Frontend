@@ -29,6 +29,9 @@ import { EditTeachersComponent } from './views/teachers/edit-teachers/edit-teach
 import { TeachersDetailsComponent } from './views/teachers-details/teachers-details.component';
 import { CreateTeachersDetailsComponent } from './views/teachers-details/create-teachers-details/create-teachers-details.component';
 import { EditTeachersDetailsComponent } from './views/teachers-details/edit-teachers-details/edit-teachers-details.component';
+import { LaboratoriesComponent } from './views/laboratories/laboratories.component';
+import { CreateLaboratoriesComponent } from './views/laboratories/create-laboratories/create-laboratories.component';
+import { EditLaboratoriesComponent } from './views/laboratories/edit-laboratories/edit-laboratories.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +56,10 @@ import { EditTeachersDetailsComponent } from './views/teachers-details/edit-teac
     EditTeachersComponent,
     TeachersDetailsComponent,
     CreateTeachersDetailsComponent,
-    EditTeachersDetailsComponent
+    EditTeachersDetailsComponent,
+    LaboratoriesComponent,
+    CreateLaboratoriesComponent,
+    EditLaboratoriesComponent
   ],
   imports: [
     BrowserModule,
