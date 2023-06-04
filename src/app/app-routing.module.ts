@@ -29,6 +29,11 @@ import { TeachersComponent } from './views/teachers/teachers.component';
 import { CreateTeachersComponent } from './views/teachers/create-teachers/create-teachers.component';   
 import { EditTeachersComponent } from './views/teachers/edit-teachers/edit-teachers.component'; 
 
+/*Teachers-Details*/
+import { TeachersDetailsComponent } from './views/teachers-details/teachers-details.component';   
+import { CreateTeachersDetailsComponent } from './views/teachers-details/create-teachers-details/create-teachers-details.component';  
+import { EditTeachersDetailsComponent } from './views/teachers-details/edit-teachers-details/edit-teachers-details.component';  
+
 
 
 const routes: Routes = [
@@ -58,6 +63,11 @@ const routes: Routes = [
 {path: 'teachers', component: TeachersComponent, canActivate:[ExpenseGuard]},
 {path: 'teachers/create-teacher', component: CreateTeachersComponent, canActivate:[ExpenseGuard]},
 {path: 'teachers/edit-teacher/:id', component: EditTeachersComponent, canActivate:[ExpenseGuard]},
+
+/*Teachers-Details*/
+{path: 'teachers-details', component: TeachersDetailsComponent, canActivate:[ExpenseGuard]},
+{path: 'teachers-details/create-teacher-detail', component: CreateTeachersDetailsComponent, canActivate:[ExpenseGuard]},
+{path: 'teachers-details/edit-teacher-detail/:id', component: EditTeachersDetailsComponent, canActivate:[ExpenseGuard]},
 
 ];
 

@@ -26,6 +26,9 @@ import { EditCoursesComponent } from './views/courses/edit-courses/edit-courses.
 import { TeachersComponent } from './views/teachers/teachers.component';
 import { CreateTeachersComponent } from './views/teachers/create-teachers/create-teachers.component';
 import { EditTeachersComponent } from './views/teachers/edit-teachers/edit-teachers.component';
+import { TeachersDetailsComponent } from './views/teachers-details/teachers-details.component';
+import { CreateTeachersDetailsComponent } from './views/teachers-details/create-teachers-details/create-teachers-details.component';
+import { EditTeachersDetailsComponent } from './views/teachers-details/edit-teachers-details/edit-teachers-details.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +50,10 @@ import { EditTeachersComponent } from './views/teachers/edit-teachers/edit-teach
     EditCoursesComponent,
     TeachersComponent,
     CreateTeachersComponent,
-    EditTeachersComponent
+    EditTeachersComponent,
+    TeachersDetailsComponent,
+    CreateTeachersDetailsComponent,
+    EditTeachersDetailsComponent
   ],
   imports: [
     BrowserModule,
