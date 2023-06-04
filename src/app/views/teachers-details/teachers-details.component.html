@@ -33,7 +33,7 @@
                     <td>{{ teacherDetail.teacher_detail_end_time }}</td>
                     <td>{{ teacherDetail.subject?.subject_name }}</td>
                     <td>{{ teacherDetail.course?.course_name }}</td>
-                    <td>{{ teacherDetail.teacher?.teacher_first_name + ' ' + teacherDetail.teacher?.teacher_last_name }}</td>
+                    <td>{{ teacherDetail.teacher?.teacher_first_name ? (teacherDetail.teacher.teacher_first_name + ' ' + teacherDetail.teacher.teacher_last_name) : '' }}</td>
                     <td>
                       <button type="button" [routerLink]="['/teachers-details/edit-teacher-detail/', teacherDetail.teacher_detail_id]" class="btn btn-outline-primary">
                         <span class="fas fa-edit"></span>
