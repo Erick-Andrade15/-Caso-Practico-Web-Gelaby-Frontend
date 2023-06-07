@@ -36,6 +36,11 @@ export class UsersService {
     return this.httpClient.get<UsersModel>(url);
   }
 
+  findByPassword(password: string): Observable<UsersModel> {
+    const url = `${this.API_URL}/users/password/${password}`;
+    return this.httpClient.get<UsersModel>(url);
+  }
+
   createUser(data: CreateUsersModel): Observable<UsersModel> {
     const url = `${this.API_URL}/users`;
     return this.httpClient.post<UsersModel>(url, data);
@@ -91,24 +96,23 @@ export class UsersService {
     localStorage.removeItem('isUserLoggedIn');
   }
 
-  resetPassword(email: string): Observable<boolean> {
+  forgotPassword(username: string): Observable<boolean> {
     const url = `${this.API_URL}/users/forgot-password`;
     const data = {
-      email: email,
+      username: username,
     };
 
     return this.httpClient.post<boolean>(url, data).pipe(
       map(() => true), // Indica que la solicitud se envió correctamente
       catchError(() => of(false)) // Maneja el error en caso de fallo en la solicitud
     );
-        // Aquí realizarías la lógica para enviar la solicitud de recuperación de contraseña
+    // Aquí realizarías la lógica para enviar la solicitud de recuperación de contraseña
     // Puedes hacer una solicitud HTTP al backend o utilizar otro método de tu elección
     // Por simplicidad, aquí se devuelve simplemente un valor booleano
-  
+
     // Realiza las operaciones necesarias y devuelve un valor booleano que indique el éxito o el fallo
     const success = true; // Indica que la solicitud se envió correctamente
-  
+
     return of(success);
   }
-  
 }

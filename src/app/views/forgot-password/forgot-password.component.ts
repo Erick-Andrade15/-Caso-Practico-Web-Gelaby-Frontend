@@ -32,18 +32,30 @@ export class ForgotPasswordComponent {
         if (user) {
           const maskedEmail = this.maskEmail(user.user_email);
           // El nombre de usuario existe, enviar la solicitud de recuperación de contraseña
-          this.apiService.resetPassword(user.user_email).subscribe(
-            () => {
-              Swal.fire({
-                icon: 'success',
-                title: 'Recuperación de contraseña',
-                text: `Se ha enviado un correo electrónico a ${maskedEmail} con instrucciones para restablecer tu contraseña.`,
-                showConfirmButton: false,
-                timer: 4000,
-              }).then(() => {
+          this.apiService.forgotPassword(user.user_username).subscribe(
+            (response) => {
+              console.error("AAAAAAAAAAAAAAAAAAAAA");
+              console.log(response);
+              if (response === true) {
+                Swal.fire({
+                  icon: 'success',
+                  title: 'Recuperación de contraseña',
+                  text: `Se ha enviado un correo electrónico a ${maskedEmail} con instrucciones para restablecer tu contraseña.`,
+                  showConfirmButton: false,
+                  timer: 4000
+                }).then(() => {
+                  this.router.navigate(['/login']);
+                });
                 this.router.navigate(['/login']);
-              });
-              this.router.navigate(['/login']);
+              } else {
+                Swal.fire({
+                  icon: 'error',
+                  title: 'Recuperación de contraseña',
+                  text: 'No se pudo enviar el correo electrónico de recuperación de contraseña. Por favor, inténtalo nuevamente.',
+                  showConfirmButton: false,
+                  timer: 4000
+                });
+              }
             },
             (error) => {
               Swal.fire({
