@@ -39,6 +39,7 @@ import { LaboratoriesAssignComponent } from './views/laboratories-assign/laborat
 import { CreateLaboratoriesAssignComponent } from './views/laboratories-assign/create-laboratories-assign/create-laboratories-assign.component';
 import { EditLaboratoriesAssignComponent } from './views/laboratories-assign/edit-laboratories-assign/edit-laboratories-assign.component';
 import { ResetPasswordComponent } from './views/reset-password/reset-password.component';
+import { UsersComponent } from './views/users/users.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { ResetPasswordComponent } from './views/reset-password/reset-password.co
     LaboratoriesAssignComponent,
     CreateLaboratoriesAssignComponent,
     EditLaboratoriesAssignComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,

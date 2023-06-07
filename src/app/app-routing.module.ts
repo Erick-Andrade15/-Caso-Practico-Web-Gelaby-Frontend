@@ -51,6 +51,8 @@ import { LaboratoriesAssignComponent } from './views/laboratories-assign/laborat
 import { CreateLaboratoriesAssignComponent } from './views/laboratories-assign/create-laboratories-assign/create-laboratories-assign.component'; 
 import { EditLaboratoriesAssignComponent } from './views/laboratories-assign/edit-laboratories-assign/edit-laboratories-assign.component'; 
 
+/*Users*/
+import { UsersComponent } from './views/users/users.component'; 
 
 const routes: Routes = [
 { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -60,6 +62,9 @@ const routes: Routes = [
 {path: 'forgot-password', component: ForgotPasswordComponent},
 {path: 'reset-password', component: ResetPasswordComponent, canActivate: [ResetPasswordGuard]},
 {path: 'register', component: RegisterComponent},
+
+/*Users*/
+{path: 'users', component: UsersComponent, canActivate:[ExpenseGuard]},
 
 /*Subjects*/
 {path: 'subjects', component: SubjectsComponent, canActivate:[ExpenseGuard]},
@@ -100,7 +105,6 @@ const routes: Routes = [
 {path: 'laboratories-assign', component: LaboratoriesAssignComponent, canActivate:[ExpenseGuard]},
 {path: 'laboratories-assign/create-laboratory-assign', component: CreateLaboratoriesAssignComponent, canActivate:[ExpenseGuard]},
 {path: 'laboratories-assign/edit-laboratory-assign/:id', component: EditLaboratoriesAssignComponent, canActivate:[ExpenseGuard]},
-
 
 ];
 
