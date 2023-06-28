@@ -54,6 +54,13 @@ import { EditLaboratoriesAssignComponent } from './views/laboratories-assign/edi
 /*Users*/
 import { UsersComponent } from './views/users/users.component'; 
 
+/*Calendar Laboratories*/
+import { CalendarLaboratoriesComponent } from './views/calendar-laboratories/calendar-laboratories.component';  
+
+/*Calendar Teachers*/
+import { CalendarTeachersComponent } from './views/calendar-teachers/calendar-teachers.component';
+
+
 const routes: Routes = [
 { path: '', redirectTo: '/login', pathMatch: 'full' },
 {path: 'home', component: HomeComponent, canActivate:[ExpenseGuard]},
@@ -65,6 +72,12 @@ const routes: Routes = [
 
 /*Users*/
 {path: 'users', component: UsersComponent, canActivate:[ExpenseGuard]},
+
+/*Calendar Laboratories*/
+{path: 'calendar-laboratories', component: CalendarLaboratoriesComponent, canActivate:[ExpenseGuard]},
+
+/*Calendar Teachers*/
+{path: 'calendar-teachers', component: CalendarTeachersComponent, canActivate:[ExpenseGuard]},
 
 /*Subjects*/
 {path: 'subjects', component: SubjectsComponent, canActivate:[ExpenseGuard]},

@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { CourseModel } from 'src/app/models/course.model';
 import { CoursesService } from 'src/app/services/courses.service';
 import Swal from 'sweetalert2';
-
+import * as jsPDF from 'jspdf';
+import 'jspdf-autotable';
 
 @Component({
   selector: 'app-courses',
@@ -72,6 +73,72 @@ export class CoursesComponent {
         );
       }
     });
+  }
+  
+  
+  exportToPDF() {
+    if (this.Courses.length <= 0) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'No hay cursos disponibles para exportar.',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      return;
+    }
+  
+    // Crea una nueva instancia de jsPDF
+    const doc = new jsPDF.default();
+  
+    // Agrega el título al PDF
+    const title = 'Reporte de Cursos';
+    const fontSize = 30;
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const textWidth =
+      (doc.getStringUnitWidth(title) * fontSize) / doc.internal.scaleFactor;
+    const titleX = (pageWidth - textWidth) / 2;
+    const titleY = 20;
+  
+    doc.setFontSize(fontSize);
+    doc.text(title, titleX, titleY);
+  
+    // Obtén los datos de la tabla
+    const tableData = this.Courses.map((course, index) => [
+      course.course_id,
+      course.course_name,
+      course.course_students,
+      course.course_duration,
+      course.career?.career_name,
+      course.course_parallel,
+      course.course_shift,
+    ]);
+  
+    // Define las columnas de la tabla
+    const headers = [
+      [
+        'Id',
+        'Nombre',
+        'Estudiantes',
+        'Semestres',
+        'Carrera',
+        'Paralelo',
+        'Jornada',
+      ],
+    ];
+  
+    // Establece la posición inicial de la tabla
+    const startY = titleY + 10;
+  
+    // Genera el contenido de la tabla
+    (doc as any).autoTable({
+      head: headers,
+      body: tableData,
+      startY: startY,
+    });
+  
+    // Guarda el PDF con un nombre de archivo
+    doc.save('cursos.pdf');
   }
   
 
