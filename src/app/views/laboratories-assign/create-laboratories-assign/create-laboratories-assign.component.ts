@@ -23,9 +23,8 @@ export class CreateLaboratoriesAssignComponent {
     lab_assign_description: '',
     lab_assign_date: '',
     laboratory: '',
-    teacher: ''
+    teacher: '',
   };
-
 
   constructor(
     private apiService: LaboratoriesAssignService,
@@ -69,7 +68,7 @@ export class CreateLaboratoriesAssignComponent {
       laboratory: this.LaboratoriesAssign.laboratory as number,
       teacher: this.LaboratoriesAssign.teacher as number,
     };
-  
+
     this.apiService.createLaboratoryAssign(data).subscribe(
       (response) => {
         Swal.fire({
@@ -85,15 +84,17 @@ export class CreateLaboratoriesAssignComponent {
       },
       (error) => {
         console.error(error);
+        const errorMessage =
+          error.error?.message ||
+          'Ocurrió un error al registrar la asignación de laboratorio!';
         Swal.fire({
           icon: 'error',
           title: 'Error',
-          text: 'Ocurrió un error al registrar la asignación de laboratorio!',
+          text: errorMessage,
           showConfirmButton: false,
-          timer: 1000,
+          timer: 3000,
         });
       }
     );
   }
-  
 }

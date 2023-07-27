@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { LaboratoriesStatusModel } from 'src/app/models/laboratories-status.model';
 import { LaboratoriesStatusService } from 'src/app/services/laboratories-status.service';
 import Swal from 'sweetalert2';
+import * as jsPDF from 'jspdf';
+import 'jspdf-autotable';
 
 @Component({
   selector: 'app-laboratories-status',
@@ -78,5 +80,58 @@ export class LaboratoriesStatusComponent {
         );
       }
     });
+  }
+
+  exportToPDF() {
+    if (this.LaboratoriesStatus.length <= 0) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'No hay registros de estado de laboratorio disponibles para exportar.',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      return;
+    }
+
+    // Crea una nueva instancia de jsPDF
+    const doc = new jsPDF.default();
+
+    // Agrega el título al PDF
+    const title = 'Reporte de Estados de Laboratorios';
+    const fontSize = 30;
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const textWidth =
+      (doc.getStringUnitWidth(title) * fontSize) / doc.internal.scaleFactor;
+    const titleX = (pageWidth - textWidth) / 2;
+    const titleY = 20;
+
+    doc.setFontSize(fontSize);
+    doc.text(title, titleX, titleY);
+
+    // Obtén los datos de la tabla
+    const tableData = this.LaboratoriesStatus.map((laboratoryStatus, index) => [
+      laboratoryStatus.lab_status_id,
+      this.datePipe.transform(laboratoryStatus.lab_status_date, 'EEEE dd MMMM yyyy'), // Format the date here
+      laboratoryStatus.laboratory?.lab_name || 'N/A',
+      laboratoryStatus.lab_status_detail,
+      laboratoryStatus.lab_status_notes,
+    ]);
+
+    // Define las columnas de la tabla
+    const headers = [['Nº', 'Fecha', 'Laboratorio', 'Estado', 'Descripción']];
+
+    // Establece la posición inicial de la tabla
+    const startY = titleY + 10;
+
+    // Genera el contenido de la tabla
+    (doc as any).autoTable({
+      head: headers,
+      body: tableData,
+      startY: startY,
+    });
+
+    // Guarda el PDF con un nombre de archivo
+    doc.save('estados_de_laboratorios.pdf');
   }
 }
