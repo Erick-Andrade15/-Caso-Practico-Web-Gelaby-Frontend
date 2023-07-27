@@ -90,7 +90,7 @@ export class CreateTeachersDetailsComponent {
       subject: this.TeacherDetails.subject as number,
       course: this.TeacherDetails.course as number,
     };
-  
+
     this.apiService.createTeacherDetail(data).subscribe(
       (response) => {
         Swal.fire({
@@ -106,15 +106,17 @@ export class CreateTeachersDetailsComponent {
       },
       (error) => {
         console.error(error);
+        const errorMessage =
+          error.error?.message ||
+          'Ocurrió un error al registrar el detalle de docente!';
         Swal.fire({
           icon: 'error',
           title: 'Error',
-          text: 'Ocurrió un error al registrar el detalle de docente!',
+          text: errorMessage,
           showConfirmButton: false,
-          timer: 1000,
+          timer: 3000,
         });
       }
     );
   }
-  
 }
