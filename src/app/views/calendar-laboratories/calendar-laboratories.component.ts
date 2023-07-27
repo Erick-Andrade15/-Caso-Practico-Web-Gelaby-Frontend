@@ -6,6 +6,7 @@ import listPlugin from '@fullcalendar/list';
 import { LaboratoriesAssignModel } from 'src/app/models/laboratories-assign.model';
 import { LaboratoriesAssignService } from 'src/app/services/laboratories-assign.service';
 import Swal from 'sweetalert2';
+import esLocale from '@fullcalendar/core/locales/es';
 
 @Component({
   selector: 'app-calendar-laboratories',
@@ -57,12 +58,13 @@ export class CalendarLaboratoriesComponent {
             title: title,
             html: `
               <strong>Descripción:</strong> ${description}<br>
-              <strong>Fecha de inicio:</strong> ${event.start}<br>
+              <strong>Fecha:</strong> ${formatDate(event.start)}<br>
             `,
             icon: 'info',
             confirmButtonText: 'OK',
           });
         },
+        locale: esLocale,
 
         // Otras opciones de configuración del calendario
       });
@@ -74,8 +76,7 @@ export class CalendarLaboratoriesComponent {
   getEvents() {
     const events = this.LaboratoriesAssign.map((laboratoryAssign) => {
       const description = laboratoryAssign.lab_assign_description;
-      const start = laboratoryAssign.lab_assign_date;
-      const end = laboratoryAssign.lab_assign_date;
+      const date = new Date(laboratoryAssign.lab_assign_date); // Convertir a objeto Date
       const labName = laboratoryAssign.laboratory?.lab_name || '';
       const teacherName = laboratoryAssign.teacher?.teacher_first_name
         ? laboratoryAssign.teacher.teacher_first_name +
@@ -88,8 +89,7 @@ export class CalendarLaboratoriesComponent {
 
       return {
         title: title,
-        start: start,
-        end: end,
+        start: date, // Formatear la fecha sin hora (solo la parte de la fecha)
         extendedProps: {
           description: description,
         },
@@ -101,3 +101,16 @@ export class CalendarLaboratoriesComponent {
     return events;
   }
 }
+// Función para formatear la fecha en formato "Día de la semana, dd de mes de yyyy"
+function formatDate(date: Date): string {
+  const daysOfWeek = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+  const months = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+
+  const dayOfWeek = daysOfWeek[date.getDay()];
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = months[date.getMonth()];
+  const year = date.getFullYear();
+
+  return `${dayOfWeek}, ${day} de ${month} de ${year}`;
+}
+

@@ -6,6 +6,7 @@ import listPlugin from '@fullcalendar/list';
 import { TeachersDetailsModel } from 'src/app/models/teachers-details.model';
 import { TeachersDetailsService } from 'src/app/services/teachers-details.service';
 import Swal from 'sweetalert2';
+import esLocale from '@fullcalendar/core/locales/es';
 
 @Component({
   selector: 'app-calendar-teachers',
@@ -65,6 +66,8 @@ export class CalendarTeachersComponent {
             confirmButtonText: 'OK',
           });
         },
+        locale: esLocale,
+
         // Otras opciones de configuración del calendario
       });
 
