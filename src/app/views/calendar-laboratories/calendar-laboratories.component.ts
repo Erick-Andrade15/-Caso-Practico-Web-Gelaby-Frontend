@@ -76,7 +76,7 @@ export class CalendarLaboratoriesComponent {
   getEvents() {
     const events = this.LaboratoriesAssign.map((laboratoryAssign) => {
       const description = laboratoryAssign.lab_assign_description;
-      const date = new Date(laboratoryAssign.lab_assign_date); // Convertir a objeto Date
+      const date = laboratoryAssign.lab_assign_date;
       const labName = laboratoryAssign.laboratory?.lab_name || '';
       const teacherName = laboratoryAssign.teacher?.teacher_first_name
         ? laboratoryAssign.teacher.teacher_first_name +
@@ -96,7 +96,7 @@ export class CalendarLaboratoriesComponent {
       };
     });
 
-    console.log(events); // Verifica los eventos generados
+    console.log(events); // Verifica los eventos generados 
 
     return events;
   }
