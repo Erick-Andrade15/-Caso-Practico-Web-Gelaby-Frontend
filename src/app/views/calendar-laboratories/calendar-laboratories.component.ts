@@ -15,7 +15,7 @@ import esLocale from '@fullcalendar/core/locales/es';
 })
 export class CalendarLaboratoriesComponent {
   LaboratoriesAssign: LaboratoriesAssignModel[] = [];
-  title: string = 'Celendario de Laboratorios';
+  title: string = 'Calendario de Laboratorios';
 
   constructor(private apiService: LaboratoriesAssignService) {
     this.getLaboratoriesAssign();

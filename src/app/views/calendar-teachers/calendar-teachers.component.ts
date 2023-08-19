@@ -14,7 +14,7 @@ import esLocale from '@fullcalendar/core/locales/es';
   styleUrls: ['./calendar-teachers.component.css'],
 })
 export class CalendarTeachersComponent {
-  title: string = 'Celendario de Docentes';
+  title: string = 'Calendario de Docentes';
   TeacherDetails: TeachersDetailsModel[] = [];
 
   constructor(private apiService: TeachersDetailsService) {
